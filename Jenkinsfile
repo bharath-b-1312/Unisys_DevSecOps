@@ -18,5 +18,40 @@ pipeline {
             sh 'trivy fs --scanners vuln,secret,misconfig .'
             }
         }
+
+        // using compsoe and curl 
+        stage('compsoe for build ') {
+            steps {
+                echo 'running docker compose'
+                sh 'docker-compose down'
+                sh 'docker-compose up -d --build'
+                sh 'docker-compose ps'
+               
+            }
+            
+        }
+
+            // using docker pipeline to build and push 
+        stage('building image and pushing it') {
+            steps {
+                echo 'using docker pipeline plugin to build and push image'
+                script {
+                    def imageName = "bharath1312/springboot"
+                    def imageTag  = "appversion$BUILD_NUMBER"
+                    def bbCred = "27c08b75-0302-4ccb-a3d6-8c074d119785"
+                    // building image 
+                    docker.build(imageName + ":" + imageTag , " -f Dockerfile .")
+                     pushing image to dockerhub
+                    docker.withRegistry('https://registry.hub.docker.com',ashuCred){
+                       docker.image(imageName + ":" + imageTag).push()
+                  
+                }
+    
+                }
+            }
+            
+        }
+
+
     }
 }
