@@ -24,11 +24,11 @@ def contact():
         
         # Normally, you would process/store the data here (e.g., send email or log it)
         # For now, just flash a success message and simulate storing it
-        flash(f"Message from {name} has been received! We'll get back to you shortly.", "success")
+        flash(f"Message from {name} has been received! We'll get back to you shortly. Appreciate your patience.", "success")
         return redirect(url_for('contact'))
     
     return render_template('contact.html')
 
 # Run the app
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5040, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
