@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: bb-tomcat-deploy
+  name: bb-tomcat-deploy
+spec:
+  replicas: 2 #no of pods need to be created
+  selector:
+    matchLabels:
+      app: bb-tomcat-deploy
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: bb-tomcat-deploy
+    spec:
+      containers:
+      - image: bharath1312/springboot:tomcatdeploy15
+        name: springboot
+        ports:
+        - containerPort: 8080
+        resources: {}
+status: {}
