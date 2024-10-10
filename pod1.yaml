@@ -6,7 +6,6 @@ metadata:
 spec:
   containers:
   - name: bbcont1
-    image: bharath1312/springboot:tomcatdeploy15
+    image: bharath1312/springboot:tomcatdeploy15 #image pushed to docker hub
     ports: 
     - containerPort: 8080
-    
