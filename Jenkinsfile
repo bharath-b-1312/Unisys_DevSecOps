@@ -42,7 +42,7 @@ pipeline {
                     // building image 
                     docker.build(imageName + ":" + imageTag , " -f Dockerfile .")
                      pushing image to dockerhub
-                    docker.withRegistry('https://registry.hub.docker.com',ashuCred){
+                    docker.withRegistry('https://registry.hub.docker.com',bbCred){
                        docker.image(imageName + ":" + imageTag).push()
                   
                 }
