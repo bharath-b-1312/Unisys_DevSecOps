@@ -1,0 +1,12 @@
+#api server version and most popular is v1
+apiVersion: v1 
+kind: Pod
+metadata: 
+  name: bbpod1 #name of pod
+spec:
+  containers:
+  - name: bbcont1
+    image: bharath1312/springboot:tomcatdeploy15
+    ports: 
+    - containerPort: 8080
+    
