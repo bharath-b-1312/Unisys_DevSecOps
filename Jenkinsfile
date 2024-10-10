@@ -12,7 +12,7 @@ pipeline {
             
         }
         // creating second stage for doing SAST analysis to identify critical vulnerability
-        stage("sAST using trivy for critical vulns"){
+        stage('SAST using trivy for critical vulns'){
             echo 'using trivy to scan code pushed by developer'
             sh 'trivy fs --scanners vuln,secret,misconfig .'
         }
