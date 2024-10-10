@@ -63,7 +63,7 @@ pipeline {
         stage('deploying yaml files'){
             steps{
                 echo 'using kubectl to deploy'
-                sh 'kubectl apply -f deploy1.yaml -f service.yaml'
+                sh 'kubectl apply -f deploy1.yaml -f service.yaml' //here we are using 'apply' instead of create to avoid msg throwing if the service or pod already exists
                 sh 'kubectl get pods,service,deployment'
             }
 
