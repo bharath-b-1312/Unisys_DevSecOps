@@ -38,7 +38,7 @@ pipeline {
                 script {
                     def imageName = "bharath1312/springboot"
                     def imageTag  = "appversion$BUILD_NUMBER"
-                    def bbCred = "27c08b75-0302-4ccb-a3d6-8c074d119785"
+                    def bbCred = "27c08b75-0302-4ccb-a3d6-8c074d119785" //this we will get from jenkins page under ManageJenkins->Credentials
                     // building image 
                     docker.build(imageName + ":" + imageTag , " -f Dockerfile .")
                      //pushing image to dockerhub
