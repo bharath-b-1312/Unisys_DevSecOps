@@ -1,11 +1,11 @@
 version: '3.9'
 services: 
-  bb-flaskapp: 
-    image: bbalp:pycodev1 
+  bb-sprintboot: 
+    image: bbspring:tomcatv1 
     build: 
       context: .  # location of dockerfile 
-      dockerfile:  alpine.dockerfile # name of dockerfile
-    container_name: bbalpCont 
+      dockerfile:  Dockerfile # name of dockerfile
+    container_name: bbspringCont 
     ports:
-    - 3015:5000  
+    - 3150:8080  
 # above steps have merging of build and run 
