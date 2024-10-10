@@ -51,7 +51,24 @@ pipeline {
             }
             
         }
+        stage('checking connection with kubectl to AKS(azure kubernetes service)'){
+            steps{
+                echo 'getting kubectl version and nodes'
+                sh 'kubectl get nodes'
+                sh 'kubectl version'
+            }
 
+        }
+
+        stage('deploying yaml files'){
+            steps{
+                echo 'using kubectl to deploy'
+                sh 'kubectl apply -f deploy1.yaml -f service.yaml'
+                sh 'kubectl get pods,service,deployment'
+            }
+
+        }
 
     }
+
 }
